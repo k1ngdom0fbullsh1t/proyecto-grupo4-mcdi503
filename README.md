@@ -6,6 +6,16 @@
 **Docente:** Sergio Paraíso
 **Dataset:** Titanic (`seaborn.load_dataset('titanic')`)
 
+**Problema del proyecto:** identificar qué factores se asocian a la supervivencia de los pasajeros del Titanic.
+
+## Recorrido del proyecto
+
+| Fase | Notebook | Qué se hizo | Principales resultados |
+|---|---|---|---|
+| **Fase 1** — EDA inicial | `notebooks/fase1/` | Primer ciclo de EDA reproducible: carga y revisión del dataset, exploración preliminar de la supervivencia, decisiones iniciales de limpieza (eliminar columnas redundantes, descartar `deck`, imputar `age` y `embarked`) y creación de `family_size` | Tasa global de supervivencia de 38,4%; mujeres 74,2% vs hombres 18,9%; gradiente por clase (1ª > 2ª > 3ª); primera evidencia de la interacción sexo × clase |
+| **Fases 2 y 3** — Calidad, limpieza, integración y EDA | `notebooks/fase2_3/` | Diagnóstico de calidad (869 nulos, 107 duplicados, columnas redundantes, `fare = 0`); limpieza e imputación de `age` por mediana `pclass` × `sex` (faltantes no MCAR); integración con la tabla de puertos cargada desde este repositorio; variables de apoyo (`age_group`, `fare_bin`, `viaja_solo`); análisis univariado y bivariado; outliers y anomalías | Interacción sexo × clase (de 96,8% en mujeres de 1ª clase a 13,5% en hombres de 3ª); `fare` muy asimétrica (asimetría 4,79) con 116 outliers reales; relación no lineal de `family_size`; faltantes informativos en `age` y `deck` |
+| **Fase 4** — Ingeniería y selección de variables | `notebooks/fase4/` | Pipeline reproducible: transformaciones y normalizaciones, variables derivadas, selección preliminar de características y documentación de cada decisión (ver detalle más abajo) | Dataset preparado de 891 × 16, sin nulos y 100% numérico; 28 variables evaluadas (3 priorizadas, 5 conservadas, 4 en revisión, 16 descartadas). Informe final: `reports/mcdi503_f4_sumativo_grupo4.pdf` |
+
 ## Estructura
 
 ```
